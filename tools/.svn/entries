@@ -1,0 +1,146 @@
+10
+
+dir
+18327
+svn://svn.openwrt.org/openwrt/trunk/tools
+svn://svn.openwrt.org/openwrt
+
+
+
+2009-11-05T11:16:20.473616Z
+18310
+nbd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3c298f89-4303-0410-b956-a3cf2f4a3e73
+
+lzma-old
+dir
+
+m4
+dir
+
+lua
+dir
+
+mklibs
+dir
+
+squashfs4
+dir
+
+mtd-utils
+dir
+
+include
+dir
+
+gmp
+dir
+
+pkg-config
+dir
+
+sstrip
+dir
+
+ipkg-utils
+dir
+
+yaffs2
+dir
+
+ppl
+dir
+
+squashfs
+dir
+
+quilt
+dir
+
+lzma
+dir
+
+cloog
+dir
+
+mpfr
+dir
+
+genext2fs
+dir
+
+ccache
+dir
+
+automake
+dir
+
+patch-cmdline
+dir
+
+firmware-utils
+dir
+
+dtc
+dir
+
+bison
+dir
+
+mkimage
+dir
+
+sed
+dir
+
+Makefile
+file
+
+
+
+
+2009-11-06T18:53:52.000000Z
+f51a34611048aee7a477a6de431cfcd0
+2009-11-05T11:16:20.473616Z
+18310
+nbd
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2838
+
+autoconf
+dir
+

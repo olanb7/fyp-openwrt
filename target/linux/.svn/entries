@@ -1,0 +1,179 @@
+10
+
+dir
+18327
+svn://svn.openwrt.org/openwrt/trunk/target/linux
+svn://svn.openwrt.org/openwrt
+
+
+
+2009-11-06T10:53:15.965598Z
+18327
+florian
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3c298f89-4303-0410-b956-a3cf2f4a3e73
+
+ppc44x
+dir
+
+etrax
+dir
+
+iop32x
+dir
+
+orion
+dir
+
+octeon
+dir
+
+pxa
+dir
+
+kirkwood
+dir
+
+ar7
+dir
+
+olpc
+dir
+
+avr32
+dir
+
+rb532
+dir
+
+goldfish
+dir
+
+ixp4xx
+dir
+
+cobalt
+dir
+
+au1000
+dir
+
+adm5120
+dir
+
+brcm63xx
+dir
+
+generic-2.4
+dir
+
+Makefile
+file
+
+
+
+
+2009-11-06T18:54:13.000000Z
+4a3c6e549c402779f6bbd7aee0226372
+2009-04-17T14:32:29.989894Z
+15245
+nico
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+365
+
+brcm47xx
+dir
+
+ifxmips
+dir
+
+generic-2.6
+dir
+
+ubicom32
+dir
+
+brcm-2.4
+dir
+
+amazon
+dir
+
+x86
+dir
+
+coldfire
+dir
+
+ar71xx
+dir
+
+ramips
+dir
+
+pxcab
+dir
+
+uml
+dir
+
+sibyte
+dir
+
+ps3
+dir
+
+atheros
+dir
+
+mpc52xx
+dir
+
+gemini
+dir
+
+rdc
+dir
+
+ppc40x
+dir
+
+at91
+dir
+
+s3c24xx
+dir
+
