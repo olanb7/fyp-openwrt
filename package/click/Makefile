@@ -1,16 +1,17 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=click
-PKG_VERSION:=olan-alt
-PKG_REV:=31fff627720711ba45de256769c33365c4daf62b
+PKG_VERSION:=didsClient
+#old (worked): PKG_REV:=31fff627720711ba45de256769c33365c4daf62b
+PKG_REV:=01f67084c2ea0a4226218328b57db25da9d06c05
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_URL:=git://github.com/olanb7/final-proj.git
+PKG_SOURCE_URL:=git://github.com/olanb7/fyp-client.git
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=$(PKG_REV)
 
-CLICK_CONF_FILE:=test.click
+CLICK_CONF_FILE:=didsClient.click
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -84,7 +85,7 @@ define Package/click/install
 	$(CP) $(PKG_BUILD_DIR)/tools/click-align/click-align $(1)/usr/bin/click-align
 	mkdir -p $(1)/usr/share/click
 	$(CP) $(PKG_BUILD_DIR)/elementmap.xml $(1)/usr/share/click/elementmap.xml
-	$(CP) ./files/$(CLICK_CONF_FILE) $(1)/usr/share/click/$(CLICK_CONF_FILE)
+	$(CP) ./files/* $(1)/usr/share/click/*
 endef
 
 $(eval $(call BuildPackage,click))

@@ -1,0 +1,68 @@
+# OpenWRT Makefile for Google Protocol Buffers [Olan Byrne]
+
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=protobuf-lite
+PKG_BASE_NAME:=protobuf
+PKG_VERSION:=2.3.0
+
+PKG_SOURCE:=$(PKG_BASE_NAME)-$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=http://protobuf.googlecode.com/files
+PKG_CAT:=zcat
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_BASE_NAME)-$(PKG_VERSION)
+#PKG_INSTALL_DIR:$(PKG_BUILD_DIR)/ipkg-install
+
+PKG_MD5SUM:=65dba2c04923595b6f0a6a44d8106f0a
+
+@echo "PKG_SOURCE is ........... : $(PKG_SOURCE)"
+@echo "PKG_BUILD_DIR is ........ : $(PKG_BUILD_DIR)"
+@echo "PKG_INSTALL_DIR is ...... : $(PKG_INSTALL_DIR)"
+
+
+include $(INCLUDE_DIR)/package.mk
+
+define Package/protobuf-lite
+  SECTION:=net
+  CATEGORY:=Network
+  TITLE:=Google Protocol Buffers [Lite]
+  URL:=http://code.google.com/p/protobuf
+  DEPENDS:=
+endef
+
+
+define Package/protobuf-lite/description
+  Google Protocol Buffers 'Lite' for OpenWRT
+endef
+
+define Build/Config
+	(cd $(PKG_BUILD_DIR); \
+		$(TARGET_CONFIGURE_OPTS) \
+			CXXFLAGS="$(pkg-config --cflags protobuf-lite)" \
+			LIBS="$(pkg-config --libs protobuf-lite)" \	
+		./configure \
+			--prefix=/usr \
+			--with-protoc=/home/olan/protobuf/src/protoc \
+			--target=$(GNU_TARGET_NAME) \
+			--host=$(GNU_TARGET_NAME) \
+			--build=$(GNU_HOST_NAME) \
+	)
+endef
+
+	#rm -rf $(PKG_INSTALL_DIR);
+	#mkdir -p $(PKG_INSTALL_DIR);
+
+define Build/Compile
+	pwd;
+	$(CP) proto-openwrt.patch $(PKG_BUILD_DIR)/src/ ;
+	cd $(PKG_BUILD_DIR)/src/ && \
+		patch -p0 < proto-openwrt.patch;
+	$(MAKE) -C $(PKG_BUILD_DIR)
+endef
+
+define Package/protobuf-lite/install
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(CP) $(PKG_BUILD_DIR)/src/protoc $(1)/usr/bin/protoc
+endef
+
+$(eval $(call BuildPackage,protobuf-lite))

@@ -1,0 +1,45 @@
+***************
+*** 450,457 ****
+  nobase_dist_proto_DATA = google/protobuf/descriptor.proto \
+                           google/protobuf/compiler/plugin.proto
+  
+- CLEANFILES = $(protoc_outputs) unittest_proto_middleman \
+               testzip.jar testzip.list testzip.proto testzip.zip
+  
+  MAINTAINERCLEANFILES = \
+    Makefile.in
+--- 450,458 ----
+  nobase_dist_proto_DATA = google/protobuf/descriptor.proto \
+                           google/protobuf/compiler/plugin.proto
+  
++ CLEANFILES = $(protoc_outputs) \
+               testzip.jar testzip.list testzip.proto testzip.zip
++ # removed from CLEANFILES:  unittest_proto_middleman \
+  
+  MAINTAINERCLEANFILES = \
+    Makefile.in
+***************
+*** 2765,2775 ****
+  # We have to cd to $(srcdir) before executing protoc because $(protoc_inputs) is
+  # relative to srcdir, which may not be the same as the current directory when
+  # building out-of-tree.
+- unittest_proto_middleman: protoc$(EXEEXT) $(protoc_inputs)
+- 	oldpwd=`pwd` && ( cd $(srcdir) && $$oldpwd/protoc$(EXEEXT) -I. --cpp_out=$$oldpwd $(protoc_inputs) )
+- 	touch unittest_proto_middleman
+  
+- $(protoc_outputs): unittest_proto_middleman
+  # Tell versions [3.59,3.63) of GNU make to not export all variables.
+  # Otherwise a system limit (for SysV at least) may be exceeded.
+  .NOEXPORT:
+--- 2766,2776 ----
+  # We have to cd to $(srcdir) before executing protoc because $(protoc_inputs) is
+  # relative to srcdir, which may not be the same as the current directory when
+  # building out-of-tree.
++ #unittest_proto_middleman: protoc$(EXEEXT) $(protoc_inputs)
++ #	oldpwd=`pwd` && ( cd $(srcdir) && $$oldpwd/protoc$(EXEEXT) -I. --cpp_out=$$oldpwd $(protoc_inputs) )
++ #	touch unittest_proto_middleman
+  
++ #$(protoc_outputs): unittest_proto_middleman
+  # Tell versions [3.59,3.63) of GNU make to not export all variables.
+  # Otherwise a system limit (for SysV at least) may be exceeded.
+  .NOEXPORT:

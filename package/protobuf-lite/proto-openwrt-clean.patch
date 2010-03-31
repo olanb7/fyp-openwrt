@@ -1,0 +1,12 @@
+--- Makefile.orig	2010-03-31 16:08:21.000000000 +0100
++++ Makefile	2010-03-31 16:18:43.000000000 +0100
+@@ -55,7 +55,8 @@
+ define Build/Compile
+ 	pwd;
+ 	$(CP) proto-openwrt.patch $(PKG_BUILD_DIR)/src/ ;
+-	patch -p0 < proto-openwrt.patch;
++	cd $(PKG_BUILD_DIR)/src/ && \
++		patch -p0 < proto-openwrt.patch;
+ 	$(MAKE) -C $(PKG_BUILD_DIR)
+ endef
+ 

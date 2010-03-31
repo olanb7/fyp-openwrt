@@ -1,0 +1,6 @@
+config BR2_PACKAGE_PROTOBUF-LITE
+	prompt "protobuf-lite...................... Google Protocol Buffers [Lite]"
+	tristate "protocol buffers"
+	default m if CONFIG_DEVEL
+	help
+		http://code.google.com/p/protobuf
